@@ -4,6 +4,7 @@ import {
   type IChartApi,
   CandlestickSeries,
   type CandlestickData,
+  type UTCTimestamp,
 } from "lightweight-charts";
 import { useParams } from "react-router-dom";
 
@@ -97,7 +98,7 @@ export default function TradingChart() {
       const k = msg.k;
 
       const candle: CandlestickData = {
-        time: k.t / 1000,
+        time: k.t / 1000 as UTCTimestamp,
         open: parseFloat(k.o),
         high: parseFloat(k.h),
         low: parseFloat(k.l),
